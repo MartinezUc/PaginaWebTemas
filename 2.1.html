@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base de Datos Relacionales</title>
+  </head>
+  <body>
+    <h1>Base de Datos Relacionales</h1>
+    <hr />
+
+    <h2>¿Qué es una base de datos relacional?</h2>
+    <p>
+      Una base de datos relacional (RDB) es una forma de estructurar información
+      en tablas, filas y columnas. <br />Una RDB tiene la capacidad de
+      establecer vínculos (o relaciones) entre información mediante la unión de
+      tablas, lo que facilita la comprensión y la obtención de estadísticas
+      sobre la relación entre varios datos.
+    </p>
+
+    <h2>Usar una base de datos relacional cuando:</h2>
+    <ul>
+      <li>
+        <strong>Estructura de Datos Compleja: </strong>Si los datos en tu
+        aplicación tienen una estructura altamente interconectada.
+      </li>
+
+      <li>
+        <strong>Integridad y Consistencia: </strong>Las bases de datos
+        relacionales son conocidas por su capacidad para mantener la integridad
+        de los datos.
+      </li>
+
+      <li>
+        <strong>Consultas Complejas: </strong>Si tu aplicación requerirá
+        consultas complejas.
+      </li>
+
+      <li>
+        <strong>Transacciones Complejas: </strong>Si necesitas soportar
+        transacciones complejas que involucran múltiples operaciones en
+        diferentes tablas y garantizar la atomicidad, consistencia, aislamiento
+        y durabilidad (propiedades ACID).
+      </li>
+    </ul>
+
+    <h2>Usar una base de datos no relacional cuando:</h2>
+    <ul>
+      <li>
+        <strong>Escalabilidad y Rendimiento: </strong>Si estás anticipando una
+        gran cantidad de datos y un alto volumen de lecturas o escrituras.
+      </li>
+
+      <li>
+        <strong>Datos No Estructurados o Semiestructurados: </strong>Si tus
+        datos no encajan bien en una estructura tabular tradicional y tienen una
+        naturaleza más flexible.
+      </li>
+
+      <li>
+        <strong>Rápido Desarrollo y Cambio: </strong>Si estás trabajando en un
+        proyecto donde los requisitos y la estructura de datos pueden cambiar
+        con frecuencia.
+      </li>
+
+      <li>
+        <strong>Altos Requisitos de Disponibilidad: </strong>Las bases de datos
+        NoSQL a menudo están diseñadas para ofrecer alta disponibilidad y
+        tolerancia a fallos.
+      </li>
+    </ul>
+
+    <h2>Relación entre tablas.</h2>
+    <p>
+      <strong>Relación uno a uno (1:1).</strong><br />En esta relación, un
+      registro en una tabla se relaciona con exactamente un registro en otra
+      tabla y viceversa. Esto suele usarse cuando una entidad está directamente
+      relacionada con otra entidad, pero cada una tiene su propia tabla.
+    </p>
+
+    <p>
+      <strong>Relación uno a muchos (1:N).</strong><br />En esta relación, un
+      registro en una tabla se relaciona con varios registros en otra tabla,
+      pero un registro en la segunda tabla solo se relaciona con un registro en
+      la primera tabla. Esto es común en situaciones en las que una entidad
+      tiene múltiples elementos relacionados.
+    </p>
+
+    <p>
+      <strong>Relación muchos a uno (N:1).</strong><br />Esta es la inversa de
+      la relación uno a muchos. En este caso, varios registros en una tabla se
+      relacionan con un solo registro en otra tabla. Esto puede ser útil cuando
+      varios registros en una tabla hacen referencia a un elemento común en otra
+      tabla.
+    </p>
+
+    <h2>¿Llaves en Base de Datos?</h2>
+    <p><strong>En una Base de Datos las llaves garantizan: </strong></p>
+    <ul>
+      <li>Integridad de los datos.</li>
+      <li>Coherencia de los datos.</li>
+    </ul>
+
+    <h3>Tipos de llaves:</h3>
+    <ol>
+      <li><strong>Llave primaria (Primary Key).</strong></li>
+      Es una llave única que identifica de manera única cada fila en una tabla.
+
+      <li><strong>Llave externa (Foreign Key).</strong></li>
+      Es un atributo o conjunto de atributos en una tabla que hace referencia a
+      la llave primaria de otra tabla.
+
+      <li><strong>Llave candidata (Candidate Key).</strong></li>
+      Son atributos o conjuntos de atributos que pueden ser potenciales llaves
+      primarias.
+
+      <li><strong>Llave unica (Unique Key).</strong></li>
+      Similar a la llave primaria, garantiza la unicidad de los valores en una
+      columna o conjunto de columnas. La diferencia principal es que una tabla
+      puede tener varias llaves únicas, pero solo una llave primaria.
+
+      <li><strong>Superclave.</strong></li>
+      Es un conjunto de uno o más atributos que identifican de manera única las
+      filas de una tabla.
+
+      <li><strong>Llave compuesta.</strong></li>
+      Es una llave primaria que consta de dos o más atributos. La combinación de
+      estos atributos debe ser única en la tabla.
+    </ol>
+    <br />
+
+    <h2>Primera Forma Normal.</h2>
+    <p>
+      La 1FN dice que en cada una de las columnas de las tablas solo podemos
+      contener un valor y que no debe haber grupos de repetición.
+    </p>
+
+    <h2>Segunda Forma Normal.</h2>
+    <p>
+      Debe estar en la primera forma normal Todos los valores de las columnas
+      deben depender de la llave primaria de la tabla. <br />Cuando la llave
+      primaria está compuesta por una sola columna automáticamente está en la
+      segunda forma normal. Cuando la llave primaria se compone por más de una
+      columna, los campos no clave deben depender de la llave primaria compuesta
+      completa. Si alguno de los campos no claves depende solamente de una parte
+      de la llave primaria entonces no cumple con la 2FN.
+    </p>
+
+    <h2>Tercera Forma Normal</h2>
+    <p>
+      Estar en 2FN. <br />Los valores de las columnas que no sean clave de la
+      tabla, no dependan de otras columnas que no sean la llave primaria.
+    </p>
+
+    <h2>¿Qué son los índices en base de datos?</h2>
+    <p>
+      Es una estructura de datos que se utiliza para mejorar la velocidad de
+      búsqueda y recuperación de registros en una tabla.
+    </p>
+
+    <h2>¿Cuál es la funcionalidad de los índices en base de datos?</h2>
+    <p>
+      Son esenciales para optimizar el rendimiento de consultas en bases de
+      datos grandes, ya que permiten acceder rápidamente a los registros que
+      cumplen con ciertos criterios de búsqueda sin tener que examinar todas las
+      filas de una tabla.
+    </p>
+
+    <h2>Procedimientos almacenados en Oracle SQL.</h2>
+    <p>
+      Es un conjunto de instrucciones SQL que se almacenan en la base de datos y
+      se pueden ejecutar de manera repetida cuando sea necesario. <br />Estos
+      procedimientos se utilizan para realizar una serie de tareas, como
+      manipular datos, realizar cálculos, ejecutar consultas complejas o llevar
+      a cabo cualquier acción que pueda ser expresada en SQL.
+    </p>
+
+    <h2>T-SQL para Developers.</h2>
+    <p>
+      Es un lenguaje de programación desarrollado por Microsoft que se utiliza
+      principalmente para administrar y consultar bases de datos en el entorno
+      de Microsoft SQL Server.
+    </p>
+
+    <ul>
+      <li>
+        Está diseñado específicamente para trabajar con bases de datos
+        relacionales y es una extensión del estándar SQL con características
+        adicionales que son específicas de SQL Server.
+      </li>
+
+      <li>
+        T-SQL es una herramienta esencial cuando trabajan con bases de datos SQL
+        Server.
+      </li>
+    </ul>
+
+    <h2>Puntos importantes de PL/SQL.</h2>
+    <ol>
+      <li>Lenguaje procedimental creado por ORACLE.</li>
+      <li>Los programas se almacenan en la BD como un objeto más.</li>
+      <li>Necesarios para crear disparadores (triggers).</li>
+      <li>La unidad de trabajo es el bloque.</li>
+      <li>Características de los lenguajes de tercera generación y OO.</li>
+      <li>Lenguaje de programación basado en el lenguaje ADA.</li>
+    </ol>
+
+    <h2>Características importantes de PL/SQL.</h2>
+    <ol>
+      <li>Definición de datos compatibles con SQL.</li>
+      <li>Estructuras de control clásicas.</li>
+      <li>Soporte para consultas.</li>
+      <li>Posee una gestión de excepciones.</li>
+      <li>Estructura modular.</li>
+      <li>Sin ordenes para la E/S.</li>
+    </ol>
+
+    <h2>Cursores</h2>
+    <ul>
+      <li>Útiles para gestionar grandes cantidades de datos.</li>
+      <li>
+        Está formado por un conjunto de registros devueltos por una instrucción
+        SQL de tipo SELECT.
+      </li>
+      <li>
+        Son segmentos de memoria utilizados para realizar operaciones con las
+        filas de datos recuperados.
+      </li>
+    </ul>
+
+    <h2>Transacciones</h2>
+    <p>Conjunto de operaciones dependientes que deben ejecutarse juntas.</p>
+
+    <h2>triggers PLSQL.</h2>
+    <h3>Tipo de triggers:</h3>
+    <ul>
+      <li>Triggers de Tabla.</li>
+      <li>Triggers de Sustitución.</li>
+      <li>Triggers de Sistema.</li>
+    </ul>
+
+    <h3>Se utilizan para:</h3>
+    <ul>
+      <li>Restricciones complejas.</li>
+      <li>Generar automáticamente valores derivados.</li>
+      <li>Auditar operaciones, envío de alertas, etcétera.</li>
+      <li>Prevenir transacciones erróneas.</li>
+    </ul>
+
+    <br />
+    <hr />
+    <h2>Material de apoyo</h2>
+    <a
+      href="https://youtube.com/playlist?list=PLGC1kwoNMbVZG2QaDnd6ME_lqNF4GF4S4"
+      ><strong>Viaje al Fondo de los Datos</strong></a
+    >
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PL3y8v30wQ1s9e6TS_fGGhhuVFOa3w-6G2"
+      ><strong>Bases de datos relacionales</strong>
+    </a>
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PLi_UneHMpzONsjIf0xl-02eQIAH7T2_t8"
+      ><strong>Relaciones entre tablas </strong>
+    </a>
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PLi_UneHMpzON3xmBc6_JfFRz7BMFk14Kl"
+      ><strong>SQL fácil, fácil</strong>
+    </a>
+
+    <br />
+    <a href="https://youtu.be/JRCjSUbYKxI"><strong>Normalización</strong> </a>
+
+    <br />
+    <a href="https://youtu.be/JZmSYf5J0C8"
+      ><strong>Primera Forma Normal</strong>
+    </a>
+
+    <br />
+    <a href="https://youtu.be/FlG-0LMXgzE"
+      ><strong>Segunda Forma Normal </strong>
+    </a>
+
+    <br />
+    <a href="https://youtu.be/g76kIh_jdLQ"
+      ><strong>Tercera Forma Normal </strong>
+    </a>
+
+    <br />
+    <a href="https://youtu.be/2A2183jBLrg"
+      ><strong>Desnormalización de BD</strong>
+    </a>
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PLE19WVM4rff1ion43QTNdbbejTKNhYs8x"
+      ><strong>Normalización de base de datos</strong>
+    </a>
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PL3y8v30wQ1s8yfsbp-YwV8Rc3eNL8YoF8"
+      ><strong
+        >Plantas contra zombis: bases de datos y algunas consultas</strong
+      >
+    </a>
+
+    <br />
+    <a
+      href="https://youtube.com/playlist?list=PL3y8v30wQ1s_GI7yuSOFWu_uAQz3TTp3k"
+      ><strong>Del esquema conceptual al esquema lógico relacional</strong>
+    </a>
+  </body>
+</html>
