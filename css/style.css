@@ -46,7 +46,7 @@ nav a:hover {
   transform: scale(1.1);
 }
 
-h1 {
+main h1 {
   height: 100px;
   display: flex;
   align-content: center;
@@ -96,6 +96,9 @@ html {
 }
 
 .h2-div h2 {
+}
+
+main h2 {
   font-size: 24px;
   font-weight: bold;
   color: #444;
@@ -182,8 +185,15 @@ hr {
   justify-content: left;
 }
 
-.ul-div ul {
+main ul {
   list-style-type: disc;
+  margin: 0;
+  margin-left: 65px;
+  padding: 0;
+  font-size: 18px;
+}
+
+main ol {
   margin: 0;
   margin-left: 65px;
   padding: 0;
@@ -263,7 +273,19 @@ img {
   justify-content: left;
 }
 
-.p-div p {
+.iframe-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+main iframe {
+  margin-bottom: 15px;
+}
+
+main p {
   width: 95%;
   display: flex;
   flex-direction: column;
@@ -289,6 +311,10 @@ img {
 .div-desfun-img {
   width: 50%;
   height: auto;
-  display: flex;
+  display: inline;
   align-items: center;
+}
+
+.table {
+  width: 80%;
 }
